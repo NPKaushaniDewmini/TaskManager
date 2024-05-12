@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddTaskActivity">
+
+    <TextView
+        android:id="@+id/addTaskHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/add_task_heading_text"
+        android:textColor="@color/teal"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_done_24"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/addTaskHeading"
+        android:layout_marginEnd="16dp" />
+
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:padding="12dp"
+        android:textSize="20sp"
+        android:hint="@string/enter_title_hint"
+        android:layout_below="@id/addTaskHeading"
+        android:background="@drawable/teal_border"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins"
+        android:maxLines="1" />
+
+    <Spinner
+        android:id="@+id/prioritySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:padding="12dp"
+        android:textSize="20sp"
+        android:layout_below="@id/titleEditText"
+        android:background="@drawable/teal_border"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins"
+        android:entries="@array/priority" />
+
+    <EditText
+        android:id="@+id/contentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:hint="@string/enter_task_description"
+        android:gravity="top"
+        android:padding="12dp"
+        android:fontFamily="@font/poppins"
+        android:background="@drawable/teal_border"
+        android:layout_below="@id/prioritySpinner"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>

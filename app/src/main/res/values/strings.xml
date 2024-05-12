@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TaskManager</string>
+    <string name="add_button_text">Add Button Text</string>
+    <string name="add_task_heading_text">Add Task</string>
+    <string name="edit_task_heading_text">Update Task</string>
+
+    <string name="enter_title_hint">Enter Task Title</string>
+    <string name="enter_task_description">Enter Task Description</string>
+
+    <string name="task_manager_text">Task Manager</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet,</string>
+
+    <string-array name="priority">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+</resources>
