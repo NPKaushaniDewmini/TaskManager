@@ -25,7 +25,7 @@ class AddTaskActivity : AppCompatActivity() {
             val title = binding.titleEditText.text.toString()
             val content = binding.contentEditText.text.toString()
             val priority = binding.prioritySpinner.selectedItem.toString()
-
+          //validation
             if (title.isEmpty()) {
                 Toast.makeText(this, "Please enter a title!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -37,7 +37,7 @@ class AddTaskActivity : AppCompatActivity() {
             }
 
             val task = TaskDAO(0, title, content, priority)
-
+            //coroutine asynchronously create a new task
             lifecycleScope.launch {
                 viewModel.createTask(task)
                 runOnUiThread {

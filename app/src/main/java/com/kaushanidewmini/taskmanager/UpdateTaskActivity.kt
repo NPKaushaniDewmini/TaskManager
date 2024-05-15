@@ -35,7 +35,7 @@ class UpdateTaskActivity : AppCompatActivity() {
             finish()
             return
         }
-
+        //fetch task details
         lifecycleScope.launch {
             viewModel.getTaskByID(taskId).collectLatest { task ->
                 if (task != null) {
@@ -52,7 +52,12 @@ class UpdateTaskActivity : AppCompatActivity() {
                 }
             }
         }
-
+// Retrieve updated task details from UI
+        // Validate input
+        // Create updated task object
+        // Update task in the database
+        // Show toast message indicating successful update
+        // Finish the activity
         binding.updateTaskButton.setOnClickListener {
             val newTitle = binding.updateTitleEditText.text.toString()
             val newContent = binding.updateContentEditText.text.toString()
@@ -69,7 +74,7 @@ class UpdateTaskActivity : AppCompatActivity() {
             }
 
             val updatedTask = TaskDAO(taskId, newTitle, newContent, newPriority)
-
+         //update task coroutine
             lifecycleScope.launch {
                 viewModel.updateTask(updatedTask)
 

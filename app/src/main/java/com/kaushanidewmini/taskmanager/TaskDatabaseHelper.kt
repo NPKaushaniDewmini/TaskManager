@@ -19,19 +19,19 @@ class TaskDatabaseHelper(context: Context) :
         private const val COLUMN_CONTENT = "content"
         private const val COLUMN_PRIORITY = "priority"
     }
-
+    // Create the database table
     override fun onCreate(db: SQLiteDatabase?) {
         val createTableQuery =
             "CREATE TABLE $TABLE_NAME($COLUMN_ID INTEGER PRIMARY KEY, $COLUMN_TITLE TEXT, $COLUMN_CONTENT TEXT, $COLUMN_PRIORITY TEXT)"
         db?.execSQL(createTableQuery)
     }
-
+    // Upgrade the database (drop and recreate the table)
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         val dropTableQuery = "DROP TABLE IF EXISTS $TABLE_NAME"
         db?.execSQL(dropTableQuery)
         onCreate(db)
     }
-
+    // Create a new task in the database
     suspend fun createTask(task: TaskDAO) {
         withContext(Dispatchers.IO) {
             val db = writableDatabase
@@ -44,7 +44,7 @@ class TaskDatabaseHelper(context: Context) :
             db.close()
         }
     }
-
+    // Retrieve all tasks from the database
     suspend fun getAllTasks(): List<TaskDAO> {
         return withContext(Dispatchers.IO) {
             val tasks = mutableListOf<TaskDAO>()
@@ -68,7 +68,7 @@ class TaskDatabaseHelper(context: Context) :
             tasks
         }
     }
-
+    // Update a task in the database
     suspend fun updateTask(task: TaskDAO) {
         withContext(Dispatchers.IO) {
             val db = readableDatabase
@@ -84,7 +84,7 @@ class TaskDatabaseHelper(context: Context) :
             db.close()
         }
     }
-
+    // Retrieve a task by its ID from the database
     suspend fun getTaskByID(taskId: Int): TaskDAO {
         return withContext(Dispatchers.IO) {
             val db = readableDatabase
@@ -103,7 +103,7 @@ class TaskDatabaseHelper(context: Context) :
             TaskDAO(id, title, content, priority)
         }
     }
-
+    // Delete a task from the database
     suspend fun deleteTask(taskId: Int) {
         withContext(Dispatchers.IO) {
             val db = writableDatabase

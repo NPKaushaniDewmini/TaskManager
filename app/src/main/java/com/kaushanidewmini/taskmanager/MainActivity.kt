@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.tasksRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.tasksRecyclerView.adapter = taskAdapter
-
+//use intent
         binding.addTaskButton.setOnClickListener {
             val intent = Intent(this, AddTaskActivity::class.java)
             startActivity(intent)
